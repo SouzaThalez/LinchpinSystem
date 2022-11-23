@@ -1,0 +1,62 @@
+.page-content {
+  position: absolute;
+  margin-top: -130px;
+  margin-left: 2em;
+}
+
+.sub-menu-list {
+  display: inline-flex;
+  position: absolute;
+  margin-top: -5em;
+  margin-left: -1em;
+}
+.sub-menu-list li {
+  padding: 10px;
+  list-style: none;
+}
+.sub-menu-list li a:hover {
+  color: blue !important;
+  cursor: pointer;
+}
+
+.grid-container-manequins {
+  margin-top: 12.6em;
+  margin-left: 1em;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.grid-container-manequins .sections {
+  width: 300px;
+  height: 220px;
+  margin-bottom: 1em;
+  background-color: #a99560;
+  box-shadow: 2px 1px 3px 1px #015647;
+  border-radius: 5px;
+}
+.grid-container-manequins .sections .img-box {
+  width: 220px;
+  height: 130px;
+  margin: auto;
+  border: 1px solid grey;
+}
+.grid-container-manequins .sections .img-box img {
+  width: 220px;
+  height: 130px;
+}
+.grid-container-manequins .sections .content-footer {
+  width: 120px;
+  margin: auto;
+}
+.grid-container-manequins .sections .content-footer .btn-send-relatorio {
+  margin-top: -0.7em;
+  height: 30px;
+  width: 137px;
+  background-color: #219ccc;
+  color: white;
+  border: none;
+  text-align: center;
+  padding: 3px;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=manequinsPage.css.map */

@@ -1,0 +1,61 @@
+@import "./variables.scss";
+
+.page-content {
+  position: absolute;
+  margin-top: -130px;
+  margin-left: 2em;
+}
+
+.sub-menu-list {
+  display: inline-flex;
+  position: absolute;
+  margin-top: -5em;
+  margin-left: -1em;
+  li {
+    padding: 10px;
+    list-style: none;
+    a:hover {
+      color: blue !important;
+      cursor: pointer;
+    }
+  }
+}
+.grid-container-manequins {
+  margin-top: 12.6em;
+  margin-left: 1em;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  .sections {
+    width: 300px;
+    height: 220px;
+    margin-bottom: 1em;
+    background-color: $boxes-background-color;
+    box-shadow: $boxes-shadows;
+    border-radius: 5px;
+    .img-box {
+      width: 220px;
+      height: 130px;
+      margin: auto;
+      border: 1px solid grey;
+      img {
+        width: 220px;
+        height: 130px;
+      }
+    }
+    .content-footer {
+      width: 120px;
+      margin: auto;
+      .btn-send-relatorio {
+        margin-top: -0.7em;
+        height: 30px;
+        width: 137px;
+        background-color: $btns-background-color;
+        color: white;
+        border: none;
+        text-align: center;
+        padding: 3px;
+        cursor: pointer;
+      }
+    }
+  }
+}

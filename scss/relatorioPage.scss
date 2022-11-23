@@ -1,0 +1,38 @@
+@import "./variables.scss";
+.page-relatorio-tittle {
+  width: 10px;
+  position: absolute;
+  margin-left: 2em;
+  margin-top: 1em;
+}
+.relatorio-grid {
+  display: grid;
+  gap: 26px;
+  grid-template-columns: auto auto auto auto;
+  .add-relatorio {
+    margin-top: 6em;
+    margin-left: 2em;
+    display: inline-flex;
+  }
+  .text-content {
+    margin-left: 1em;
+    line-height: 30px;
+    .btn-download {
+      height: 34px;
+      width: 94px;
+      margin-left: 8px;
+      background-color: $btns-background-color;
+      color: white;
+      border: none;
+      text-align: center;
+      padding: 3px;
+      cursor: pointer;
+      
+    }
+  }
+  .polygon-img {
+    position: absolute;
+    margin-top: 12em;
+    margin-left: -1em;
+  }
+}

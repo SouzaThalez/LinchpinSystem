@@ -1,0 +1,158 @@
+.relatorio-formulario .btn-gerar-relatorio {
+  position: absolute;
+  margin-top: 26px;
+  margin-left: 93px;
+  height: 40px;
+  padding: 10px;
+  text-align: center;
+  background-color: #219ccc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.relatorio-formulario .grid-manequin-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 40px;
+  position: absolute;
+  margin-top: 12em;
+  margin-left: 2em;
+}
+.relatorio-formulario .grid-manequin-container .manequim-tittle {
+  position: absolute;
+  margin-top: -156px;
+}
+.relatorio-formulario .grid-manequin-container .manequim-tittle .page-paragraph {
+  margin-top: 35px;
+}
+.relatorio-formulario .grid-manequin-container .panels {
+  width: 400px;
+  height: 660px;
+  background-color: #a99560;
+  box-shadow: 2px 1px 3px 1px #015647;
+  border-radius: 20px;
+}
+.relatorio-formulario .grid-manequin-container .first-panel .manequim-image {
+  width: 225px;
+  height: 100px;
+  margin: auto;
+  margin-top: 15px;
+}
+.relatorio-formulario .grid-manequin-container .first-panel .manequim-image img {
+  width: 220px;
+  height: 130px;
+  border-radius: 5px;
+}
+.relatorio-formulario .grid-manequin-container .first-panel .quantity {
+  position: absolute;
+  margin-top: 40px;
+  margin-left: 140px;
+  color: #00ffd3;
+}
+.relatorio-formulario .grid-manequin-container .first-panel .panel-title {
+  position: absolute;
+  margin-top: 50px;
+  margin-left: 2em;
+  font-family: Malayalam MN;
+}
+.relatorio-formulario .grid-manequin-container .first-panel #ressusci-anne {
+  width: 120px;
+  height: 100px;
+}
+.relatorio-formulario .grid-manequin-container .first-panel .manequin-caracteristics-list {
+  margin-top: 5.5em;
+}
+.relatorio-formulario .grid-manequin-container .first-panel .manequin-caracteristics-list li {
+  list-style: circle;
+  padding: 3px;
+}
+.relatorio-formulario .grid-manequin-container .second-panel .panel-head {
+  margin-top: 31px;
+  margin-left: 15px;
+}
+.relatorio-formulario .grid-manequin-container .second-panel .panel-title {
+  position: absolute;
+  margin-left: 2em;
+  margin-top: 79px;
+  font-family: Malayalam MN;
+}
+.relatorio-formulario .grid-manequin-container .second-panel .form-select {
+  background-color: #c6d0d8;
+}
+.relatorio-formulario .grid-manequin-container .second-panel .all-check-boxes {
+  margin-top: 76px;
+  float: right;
+  margin-right: 4em;
+}
+.relatorio-formulario .grid-manequin-container .second-panel .manequim-resources-list {
+  margin-left: 2em;
+  margin-top: 8em;
+  /* Hide the browser's default checkbox */
+  /* Create a custom checkbox */
+  /* On mouse-over, add a grey background color */
+  /* When the checkbox is checked, add a blue background */
+  /* Create the checkmark/indicator (hidden when not checked) */
+  /* Show the checkmark when checked */
+  /* Style the checkmark/indicator */
+}
+.relatorio-formulario .grid-manequin-container .second-panel .manequim-resources-list .container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.relatorio-formulario .grid-manequin-container .second-panel .manequim-resources-list .container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.relatorio-formulario .grid-manequin-container .second-panel .manequim-resources-list .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+.relatorio-formulario .grid-manequin-container .second-panel .manequim-resources-list .container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+.relatorio-formulario .grid-manequin-container .second-panel .manequim-resources-list .container input:checked ~ .checkmark {
+  background-color: #0a2b45;
+}
+.relatorio-formulario .grid-manequin-container .second-panel .manequim-resources-list .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.relatorio-formulario .grid-manequin-container .second-panel .manequim-resources-list .container input:checked ~ .checkmark:after {
+  display: block;
+}
+.relatorio-formulario .grid-manequin-container .second-panel .manequim-resources-list .container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.relatorio-formulario .grid-manequin-container .second-panel .second-panel-footer {
+  position: relative;
+  width: 300px;
+  height: 100px;
+  margin: auto;
+}
+
+/*# sourceMappingURL=relatorioFormulario.css.map */

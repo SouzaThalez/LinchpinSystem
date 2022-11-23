@@ -1,0 +1,53 @@
+.status-page-tittle {
+  width: 415px;
+  position: absolute;
+  margin-left: 2em;
+  margin-top: 1em;
+}
+
+.page-description {
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 2em;
+}
+
+.relatorio-grid {
+  display: grid;
+  gap: 3px;
+  grid-template-columns: auto auto auto;
+}
+.relatorio-grid .add-relatorio {
+  margin-top: 11em;
+  margin-left: 2em;
+  margin-bottom: -60px;
+  display: inline-flex;
+  width: 300px;
+}
+.relatorio-grid .text-content {
+  margin-left: 1em;
+  line-height: 30px;
+}
+.relatorio-grid .text-content .btn-confirm {
+  height: 34px;
+  width: 94px;
+  margin-left: 8px;
+  background-color: #219ccc;
+  color: white;
+  border: none;
+  text-align: center;
+  padding: 3px;
+  cursor: pointer;
+}
+.relatorio-grid .text-content label {
+  margin-left: 0px;
+}
+.relatorio-grid .text-content #tipo-de-arquivo {
+  margin-left: 5px;
+}
+.relatorio-grid .polygon-img {
+  position: absolute;
+  margin-top: 12em;
+  margin-left: -1.1em;
+}
+
+/*# sourceMappingURL=statusPage.css.map */

@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/mainstyle.css">
+    <!--Date flat picker!-->
+    <link rel="stylesheet" href="node_modules/flatpickr/dist/flatpickr.min.css">
+     <!--Date flat picker blue Theme!-->
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_blue.css">
+      <!-- BOOTSTRAP CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- My OWN CSS-->
+    <link rel="stylesheet" href="css/mainstyle.css">
+    <!-- jsPDF Library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+    
+    <title>LabSim Check</title>
+</head>
+<body>
+    <div class="main-section">
+        <div class="panels side-panel">
+        <div class="profile-image">
+            <img src="./imgs/profilePhoto.png" alt="profile photo">
+        </div>
+        <h3 class="side-profile-tittle">Linchpin System</h3>
+        <hr id="horizontal-line" style="width: 200px; margin: auto;">
+        <ul class="contact-list">
+            <li><a href="#">Labsim@gmail.com</a></li>
+            <li><a href="#">coordenação@gmail.com</a></li>
+            <li><a href="#">respinsavel tecnico</a></li>
+        </ul>
+        <ul class="media-links">
+            <li class="website-link">www.LinchpinSys.com.br</li>
+        </ul>
+        </div>
+        <div class="panels main-panel">
+            <ul class="nav-menu">
+                <li><a onclick="showPage(event)"  pageName="home">Home</a></li>
+                <li><a onclick="showPage(event)"  pageName="manequins">Manequins</a></li>
+                <li><a onclick="showPage(event)" pageName="relatorio">Relatórios</a></li>
+            </ul>
+        <!--   HOME PAGE  --->    
+            <div class=" pages home-page" pageName="home"style="display: block">
+                <span class="home-page-tittle"><h2>Home</h2></span>
+                <div class="main-text">
+                    <p>Bem vindo ao Linchpin , este é um sistema responsavel por gerenciar e acompanhar as falhas tecnicas dos Manequins da Leardeal e outros.
+                        O intuito é que o sistema seja capaz de minimizar o 'gap' que existe hoje entre controle e registro de falhas dos manequins, nos laboratórios de simulacao do País.
+                    </p>
+                </div>
+                <span class="page-subtittle"><h2>Categorias</h2></span>
+                <div class="grid-home-container">
+                    <div class="colums">
+                        <img src="imgs/acompanhar-36dp/2x/outline_person_search_white_36dp.png" alt="look-icon">
+                        <div class="content">
+                            <div class="content-tittle">Status do seu Simulador</div>
+                            <p class="content-text">Acompanhe o andamento de seus Simuladores</p>
+                            <button class="btns-home" pageName="status" onclick="showPage(event)"> Acompanhar! </buttton>
+                        </div>
+                    </div>
+                    <div class="colums">
+                        <img src="imgs/addManequin-36dp/2x/outline_person_add_alt_1_white_36dp.png" alt="add-icon">
+                        <div class="content">
+                            <div class="content-tittle">Adicionar novo Manequim</div>
+                            <div class="content-text">pagina para adicionar novo Manequim</div>
+                            <button class="btns-home"> Adicionar! </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        <!--   MANEQUIM PAGE  --->        
+            <div class="pages manequins-page" pageName="manequins" style="display: none;">
+                <span class="page-tittle"><h2>Manequins</h2></span>
+                <span class="page-content"> Apresentação de todos os manequins. Enviou de relatorio..</span>
+                <ul class="sub-menu-list">
+                    <li id="todos"><a onclick="selectCategories(event)">Todos</a></li>
+                    <li id="media-fidelidade"><a onclick="selectCategories(event)">Media Fidelidade</a></li>
+                    <li id="alta-fidelidade"><a onclick="selectCategories(event)">Alta Fidelidade</a></li>
+                </ul>
+                <div class="grid-container-manequins">
+                    <div class="sections" tag="media">
+                        <div class="img-box">
+                            <img src="imgs/manequins/RessuciAnne.jpg" alt="ressusci" class="ressuci">
+                        </div>
+                        <div class="content-footer">
+                            <p id="ressusciAnne">Ressuci Anne</p>
+                            <button class="btn-send-relatorio">Enviar relatorio</button>
+                        </div>
+                    </div>
+                    <div class="sections" tag="media">
+                        <div class="img-box">
+                            <img src="imgs/manequins/nurseAnne.jpeg" alt="Nuerseianne" class="nurse">
+                        </div>
+                        <div class="content-footer">
+                            <p id="nurseAnne">Nurse Anne</p>
+                            <button class="btn-send-relatorio">Enviar relatorio</button>
+                        </div>
+                        
+                    </div>
+                    <div class="sections" tag="media">
+                        <div class="img-box">
+                            <img src="imgs/manequins/megaKelly.jpeg" alt="mega code" class="mega">
+                        </div>
+                        <div class="content-footer">
+                            <p id="megaKelly">MegaCode Kelly</p>
+                            <button class="btn-send-relatorio">Enviar relatorio</button>
+                        </div>
+                        
+                    </div>
+                    <div class="sections" tag="alta">
+                        <div class="img-box">
+                            <img src="imgs/manequins/simJunior.jpeg" alt="SimJunior" class="junior">
+                        </div>
+                        <div class="content-footer">
+                            <p id="simJunior">Sim Junior</p>
+                            <button class="btn-send-relatorio">Enviar relatorio</button>
+                        </div>
+                        
+                    </div>
+                    <div class="sections" tag="alta">
+                        <div class="img-box">
+                            <img src="imgs/manequins/SimManALS.jpeg" alt="SimManALS" class="als">
+                        </div>
+                        <div class="content-footer">
+                            <p id="simALS">SimMan ALS</p>
+                            <button class="btn-send-relatorio">Enviar relatorio</button>
+                        </div>
+                        
+                    </div>
+                    <div class="sections" tag="alta">
+                        <div class="img-box">
+                            <img src="imgs/manequins/SimNewb.jpeg" alt="SimNewB" class="newB">
+                        </div>
+                        <div class="content-footer">
+                            <p id="simNewB">SimNew B</p>
+                            <button class="btn-send-relatorio">Enviar relatorio</button>
+                        </div>
+                        
+                    </div>
+                    <div class="sections" tag="media"> 
+                        <div class="img-box">
+                            <img src="imgs/manequins/megaKid.jpeg" alt="mega code kid" class="megak">
+                        </div>
+                        <div class="content-footer">
+                            <p id="megaCodekid">MegaCode Kid</p>
+                            <button class="btn-send-relatorio">Enviar relatorio</button>
+                        </div>
+                        
+                    </div>
+                    <div class="sections" tag="alta">
+                        <div class="img-box">
+                            <img src="imgs/manequins/simBaby.jpeg" alt="SimBaby" class="baby">
+                        </div>
+                        <div class="content-footer">
+                            <p id="simBaby">SimBaby</p>
+                            <button class="btn-send-relatorio">Enviar relatorio</button>
+                        </div>
+                        
+                    </div>
+                    <div class="sections" tag="alta">
+                        <div class="img-box">
+                            <img src="imgs/manequins/SIM3G.jpeg" alt="SimMan3G" class="3G">
+                        </div>
+                        <div class="content-footer">
+                            <p id="sim3g">SimMan 3G</p>
+                            <button class="btn-send-relatorio">Enviar relatorio</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!--   RELATORIO PAGE  --->        
+            <div class="pages relatorio-page"  pageName="relatorio"style="display: none;">
+                <span class="page-relatorio-tittle"><h2>Relatórios</h2></span>
+                <div class="relatorio-grid">
+                <!--
+                    <div class="add-relatorio">
+                        <div class="timeline-imgs">
+                            <img src="./linegreenline.png" alt="" class="line-img">
+                            <img src="./point.png" alt="" class="polygon-img">
+                        </div>
+                        <div class="text-content">
+                            <p>Nome do Manequim: </p>
+                            <p> Tags:  mediaFidelidade , Alta Fidelidade , todos..</p>
+                            <label for=""> Download tipo: </label>
+                            <select name="dropdown" id="tipo-de-arquivo">
+                                <option value="pdf">Arquivo pdf</option>
+                                <option value="xlsx">Arquivo Excel</option>
+                            </select>
+                            <button class="btn-download"> Download </button>
+                        </div>
+                    </div>
+                -->
+                </div>
+            </div>
+        <!--   STATUS  PAGE  ---> 
+            <div class="pages status-page" pageName="status" style="display: none;">
+                <span class="status-page-tittle"><h2>Status dos Simuladores</h2></span>
+                <span class="page-description"> Acompanhe os Status de todos os seus Simuladores</span>
+                <div class="relatorio-grid">
+                <!--
+                    <div class="add-relatorio">
+                        <div class="timeline-imgs">
+                            <img src="./linegreenline.png" alt="" class="line-img">
+                            <img src="./point.png" alt="" class="polygon-img">
+                        </div>
+                        <div class="text-content">
+                            <p>Simulador: <span>SimMan Als</span></p>
+                            <p> Codigo: <span>Manequim 1</span></p>
+                            <p> Status: <span>ABERTO </span> 12/03/199</p>
+                            <p> Status: <span>FECHADO </span> 12/03/199</p>
+                            <label for=""> Definir: </label>
+                            <select name="dropdown" id="tipo-de-arquivo">
+                                <option value="open">ABERTO</option>
+                                <option value="closed">FECHADO</option>
+                            </select>
+                            <button class="btn-confirm"> Confirmar </button>
+                        </div>
+                    </div>
+                    <div class="add-relatorio">
+                        <div class="timeline-imgs">
+                            <img src="./linegreenline.png" alt="" class="line-img">
+                            <img src="./point.png" alt="" class="polygon-img">
+                        </div>
+                        <div class="text-content">
+                            <p>Simulador: <span>SimMan Als</span></p>
+                            <p> Codigo: <span>Manequim 1</span></p>
+                            <p> Status: <span>ABERTO</span></p>
+                            <label for=""> Definir: </label>
+                            <select name="dropdown" id="tipo-de-arquivo">
+                                <option value="open">ABERTO</option>
+                                <option value="closed">FECHADO</option>
+                            </select>
+                            <button class="btn-download"> Confirmar </button>
+                        </div>
+                    </div>
+                    <div class="add-relatorio">
+                        <div class="timeline-imgs">
+                            <img src="./linegreenline.png" alt="" class="line-img">
+                            <img src="./point.png" alt="" class="polygon-img">
+                        </div>
+                        <div class="text-content">
+                            <p>Simulador: <span>SimMan Als</span></p>
+                            <p> Codigo: <span>Manequim 1</span></p>
+                            <p> Status: <span>ABERTO</span></p>
+                            <label for=""> Definir: </label>
+                            <select name="dropdown" id="tipo-de-arquivo">
+                                <option value="open">ABERTO</option>
+                                <option value="closed">FECHADO</option>
+                            </select>
+                            <button class="btn-download"> Confirmar </button>
+                        </div>
+                    </div>
+                    <div class="add-relatorio">
+                        <div class="timeline-imgs">
+                            <img src="./linegreenline.png" alt="" class="line-img">
+                            <img src="./point.png" alt="" class="polygon-img">
+                        </div>
+                        <div class="text-content">
+                            <p>Simulador: <span>SimMan Als</span></p>
+                            <p> Codigo: <span>Manequim 1</span></p>
+                            <p> Status: <span>ABERTO</span></p>
+                            <label for=""> Definir: </label>
+                            <select name="dropdown" id="tipo-de-arquivo">
+                                <option value="open">ABERTO</option>
+                                <option value="closed">FECHADO</option>
+                            </select>
+                            <button class="btn-download"> Confirmar </button>
+                        </div>
+                    </div>
+                    <div class="add-relatorio">
+                        <div class="timeline-imgs">
+                            <img src="./linegreenline.png" alt="" class="line-img">
+                            <img src="./point.png" alt="" class="polygon-img">
+                        </div>
+                        <div class="text-content">
+                            <p>Simulador: <span>SimMan Als</span></p>
+                            <p> Codigo: <span>Manequim 1</span></p>
+                            <p> Status: <span>ABERTO</span></p>
+                            <label for=""> Definir: </label>
+                            <select name="dropdown" id="tipo-de-arquivo">
+                                <option value="open">ABERTO</option>
+                                <option value="closed">FECHADO</option>
+                            </select>
+                            <button class="btn-download"> Confirmar </button>
+                        </div>
+                    </div>
+                    <div class="add-relatorio">
+                        <div class="timeline-imgs">
+                            <img src="./linegreenline.png" alt="" class="line-img">
+                            <img src="./point.png" alt="" class="polygon-img">
+                        </div>
+                        <div class="text-content">
+                            <p>Simulador: <span>SimMan Als</span></p>
+                            <p> Codigo: <span>Manequim 1</span></p>
+                            <p> Status: <span>ABERTO</span></p>
+                            <label for=""> Definir: </label>
+                            <select name="dropdown" id="tipo-de-arquivo">
+                                <option value="open">ABERTO</option>
+                                <option value="closed">FECHADO</option>
+                            </select>
+                            <button class="btn-download"> Confirmar </button>
+                        </div>
+                    </div>
+                -->
+                </div>
+            </div>
+        <!-- Relatorio pages --->
+            <div class="pages relatorio-formulario" id="ressusciAnne" tag="media Fidelidade" style="display: none;">
+                <div class="grid-manequin-container">
+                    <span class="manequim-tittle">
+                        <h2>Ressusci Anne</h2>
+                        <p class="page-paragraph">Selecione em relatorio de falhas o recurso do manequim que parou de funcionar ou apresenta falhas.. </p>
+                    </span>
+                    
+                    <div class="panels first-panel">
+                        <div class="manequim-image">
+                            <img src="imgs/manequins/RessuciAnne.jpg" alt="manequim-img" id="ressusciAnne">
+                        </div>
+                        <span class="quantity">Quantidade: <span total="4"> 4</span></span><br>
+                        <span class="panel-title">Recursos</span>
+                        <ul class="manequin-caracteristics-list">
+                            <li>Incursoes respiratórias</li>
+                            <li>Ausculta de sons respiratórios e cardiaco NAO avancado</li>
+                            <li>Bordas para Choque elétrico</li>
+                            <li>Eletrodos em torax para Monitorizacao cardiaca</li>
+                            <li>Intubacao Orotraqueal</li>
+                            <li>Ventilacao com Dispositivo Bolsa Valvula Mascara (AMBU)</li>
+                            <li>Massagem Cardiaca (Com feedback) em Simpad</li>
+                            <li>Pulsos (carotideo, braqueal e radial)</li>
+                        </ul>
+                    </div>
+                    <div class="panels second-panel">
+                        <div class="panel-head">
+                              <div class="container">
+                                <div class="row">
+                                  <div class="col">
+                                    <label for="inputCity" class="form-label">Data</label>
+                                    <input id="myDate" type="datetime-local" class="form-control" placeholder="Data do relatorio...">
+                                  </div>
+                                  <div class="col">
+                                    <label for="inputCode" class="form-label">Codigo</label>
+                                    <select name="dropdown" class="form-select">
+                                        <option selected>Codigo manequin..</option>
+                                        <option value="1200-302">1200-302</option>
+                                        <option value="1200-403">1200-403</option>
+                                        <option value="1200-201">1200-201</option>
+                                        <option value="1200-100">1200-100</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                        <label class="all-check-boxes">Todos
+                            <input type="checkbox" class="check-boxes">
+                            <span class="checkmark"></span>
+                        </label>
+                        <span class="panel-title">Relatorio de Falhas</span>
+                        <div class="manequim-resources-list"> 
+                            <label class="container">Pulso carotideo direito
+                                <input type="checkbox" class="check-boxes">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container">Pulso carotideo esquerdo
+                                <input type="checkbox" class="check-boxes">
+                                <span class="checkmark"></span>
+                            </label>
+        
+                            <label class="container">pulso braqueal direito
+                                <input type="checkbox" class="check-boxes">
+                                <span class="checkmark"></span>
+                            </label>
+                            
+                            <label class="container"class="check-boxes">pulso radial direito
+                                <input type="checkbox" class="check-boxes">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container">Incursoes respiratórias
+                                <input type="checkbox" class="check-boxes">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container">Esfignomamometro
+                                <input type="checkbox" class="check-boxes">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container"> 4 Eletrodos para Monitorizacao
+                                <input type="checkbox" class="check-boxes">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container"> 2 bordas para Choque Elétrico
+                                <input type="checkbox" class="check-boxes">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container">Sons Internos
+                                <input type="checkbox" class="check-boxes">
+                                <span class="checkmark"></span>
+                            </label>
+                          
+                        </div> 
+                        <div class="second-panel-footer">
+                            <button class="btn-gerar-relatorio"> Gerar Relatório</button> 
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        <!-- Relatorio pages --->
+            <div class="pages relatorio-formulario" id="nurseAnne" tag="media Fidelidade" style="display: none;">
+                <div class="grid-manequin-container">
+                    <span class="manequim-tittle"><h2>Nurse Anne</h2></span>
+                    <div class="panels first-panel">
+                        <div class="manequim-image">
+                            <img src="imgs/manequins/nurseAnne.jpeg" alt="manequim-img" id="nurseAnne">
+                        </div>
+                        <span class="quantity">Quantidade: <span total="2"> 2</span></span><br>
+                        <span class="panel-title">Recursos</span>
+                        <ul class="manequin-caracteristics-list">
+                            <li>Ausculta do Batimento Cardiaco Fetal</li>
+                            <li>Ausculta de sons respiratórios e cardiaco NAO avancado</li>
+                            <li>Esfignomanometro</li>
+                            <li>Eletrodos em torax para Monitorizacao cardiaca</li>
+                            <li>Traqueuostomia</li>
+                            <li>Ventilacao com Dispositivo Bolsa Valvula Mascara (AMBU)</li>
+                            <li>Mamas presas e em bom estado</li>
+                            <li>Pulso radial e braqueal Direito </li>
+                        </ul>
+                    </div>
+                    <div class="panels second-panel">
+                        <div class="panel-head">
+                            <div class="container">
+                              <div class="row">
+                                <div class="col">
+                                  <label for="inputCity" class="form-label">Data</label>
+                                  <input id="myDate" type="datetime-local" class="form-control" placeholder="Data do relatorio...">
+                                </div>
+                                <div class="col">
+                                  <label for="inputCode" class="form-label">Codigo</label>
+                                  <select name="dropdown" class="form-select">
+                                      <option selected>Codigo manequin..</option>
+                                      <option value="263-201">263-201</option>
+                                      <option value="263-202">263-202</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                      </div>
+                      <label class="all-check-boxes">Todos
+                          <input type="checkbox" class="check-boxes">
+                          <span class="checkmark"></span>
+                      </label>
+                      <span class="panel-title">Relatorio de Falhas</span>
+                      <div class="manequim-resources-list"> 
+                          <label class="container">Pulso carotideo direito
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Pulso carotideo esquerdo
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+      
+                          <label class="container">pulso braqueal direito
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          
+                          <label class="container"class="check-boxes">pulso radial direito
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Incursoes respiratórias
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Esfignomamometro
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container"> 4 Eletrodos para Monitorizacao
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container"> 2 bordas para Choque Elétrico
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Sons Internos
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                        
+                      </div> 
+                      <div class="second-panel-footer">
+                          <button class="btn-gerar-relatorio"> Gerar Relatório</button> 
+                      </div>
+    
+                    </div>
+                </div>
+            </div>
+        <!-- Relatorio pages --->
+            <div class="pages relatorio-formulario" id="megaKelly" tag="media Fidelidade" style="display: none;">
+                <div class="grid-manequin-container">
+                    <span class="manequim-tittle"><h2>Mega Code Kelly</h2></span>
+                    <div class="panels first-panel">
+                        <div class="manequim-image">
+                            <img src="imgs/manequins/megaKelly.jpeg" alt="manequim-img" id="megaKelly">
+                        </div>
+                        <span class="quantity">Quantidade: <span total="2"> 2</span></span><br>
+                        <span class="panel-title">Recursos</span>
+                        <ul class="manequin-caracteristics-list">
+                            <li>Ausculta de sons respiratórios e cardiaco avancado</li>
+                            <li>Ausculta de ruídos Hidroaéreos</li>
+                            <li>Bordas para Choque elétrico</li>
+                            <li>Eletrodos em torax para Monitorizacao cardiaca</li>
+                            <li>Intubacao Orotraqueal</li>
+                            <li>Ventilacao com Dispositivo Bolsa Valvula Mascara (AMBU)</li>
+                            <li>Massagem Cardiaca (Com feedback) em Simpad</li>
+                            <li>Pulsos (carotideo, braqueal e radial)</li>
+                        </ul>
+                    </div>
+                    <div class="panels second-panel">
+                        <div class="panel-head">
+                            <div class="container">
+                              <div class="row">
+                                <div class="col">
+                                  <label for="inputCity" class="form-label">Data</label>
+                                  <input id="myDate" type="datetime-local" class="form-control" placeholder="Data do relatorio...">
+                                </div>
+                                <div class="col">
+                                  <label for="inputCode" class="form-label">Codigo</label>
+                                  <select name="dropdown" class="form-select">
+                                      <option selected>Codigo manequin..</option>
+                                      <option value="300-321">300-321</option>
+                                      <option value="300-324">300-324</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                      </div>
+                      <label class="all-check-boxes">Todos
+                          <input type="checkbox" class="check-boxes">
+                          <span class="checkmark"></span>
+                      </label>
+                      <span class="panel-title">Relatorio de Falhas</span>
+                      <div class="manequim-resources-list"> 
+                          <label class="container">Pulso carotideo direito
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Pulso carotideo esquerdo
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+      
+                          <label class="container">pulso braqueal direito
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          
+                          <label class="container"class="check-boxes">pulso radial direito
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Incursoes respiratórias
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Esfignomamometro
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container"> 4 Eletrodos para Monitorizacao
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container"> 2 bordas para Choque Elétrico
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Sons Internos
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                        
+                      </div> 
+                      <div class="second-panel-footer">
+                          <button class="btn-gerar-relatorio"> Gerar Relatório</button> 
+                      </div>
+  
+                    </div>
+                </div>
+                
+            </div>
+        <!-- Relatorio pages --->
+            <div class="pages relatorio-formulario" id="simJunior" tag="alta Fidelidade" style="display: none;">
+                <div class="grid-manequin-container">
+                    <span class="manequim-tittle"><h2>Sim Junior</h2></span>
+                    <div class="panels first-panel">
+                        <div class="manequim-image">
+                            <img src="imgs/manequins/simJunior.jpeg" alt="manequim-img" id="simJunior">
+                        </div>
+                        <span class="quantity">Quantidade: <span total="1"> 1</span></span><br>
+                        <span class="panel-title">Recursos</span>
+                        <ul class="manequin-caracteristics-list">
+                            <li>Incursoes respiratórias</li>
+                            <li>Ausculta de sons respiratórios e cardiaco NAO avancado</li>
+                            <li>Bordas para Choque elétrico</li>
+                            <li>Eletrodos em torax para Monitorizacao cardiaca</li>
+                            <li>Intubacao Orotraqueal</li>
+                            <li>Ventilacao com Dispositivo Bolsa Valvula Mascara (AMBU)</li>
+                            <li>Ausculta de ruidos Hidroaéreos</li>
+                            <li>Pulso radial esquerdo e carotideo</li>
+                            <li>Distencao Estomacal</li>
+                            <li>Convulsao</li>
+                        </ul>
+                    </div>
+                    <div class="panels second-panel">
+                        <div class="panel-head">
+                            <div class="container">
+                              <div class="row">
+                                <div class="col">
+                                  <label for="inputCity" class="form-label">Data</label>
+                                  <input id="myDate" type="datetime-local" class="form-control" placeholder="Data do relatorio...">
+                                </div>
+                                <div class="col">
+                                  <label for="inputCode" class="form-label">Codigo</label>
+                                  <select name="dropdown" class="form-select">
+                                      <option selected>Codigo manequin..</option>
+                                      <option value="125-100">125-100</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                      </div>
+                      <label class="all-check-boxes">Todos
+                          <input type="checkbox" class="check-boxes">
+                          <span class="checkmark"></span>
+                      </label>
+                      <span class="panel-title">Relatorio de Falhas</span>
+                      <div class="manequim-resources-list"> 
+                          <label class="container">Pulso carotideo direito
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Pulso carotideo esquerdo
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+      
+                          <label class="container">pulso braqueal direito
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          
+                          <label class="container"class="check-boxes">pulso radial direito
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Incursoes respiratórias
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Esfignomamometro
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container"> 4 Eletrodos para Monitorizacao
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container"> 2 bordas para Choque Elétrico
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Sons Internos
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                        
+                      </div> 
+                      <div class="second-panel-footer">
+                          <button class="btn-gerar-relatorio"> Gerar Relatório</button> 
+                      </div> 
+                    </div>
+                </div>
+            </div>
+        <!-- Relatorio pages --->
+            <div class="pages relatorio-formulario" id="simALS" tag="alta Fidelidade" style="display: none;">
+                <div class="grid-manequin-container">
+                    <span class="manequim-tittle"><h2>SimMan ALS</h2></span>
+                    <div class="panels first-panel">
+                        <div class="manequim-image">
+                            <img src="imgs/manequins/SimManALS.jpeg" alt="manequim-img" id="simALS">
+                        </div>
+                        <span class="quantity">Quantidade: <span total="2"> 2</span></span><br>
+                        <span class="panel-title">Recursos</span>
+                        <ul class="manequin-caracteristics-list">
+                            <li>Incursoes respiratórias</li>
+                            <li>Ausculta de sons respiratórios e cardiaco NAO avancado</li>
+                            <li>Bordas para Choque elétrico</li>
+                            <li>Eletrodos em torax para Monitorizacao cardiaca</li>
+                            <li>Intubacao Orotraqueal</li>
+                            <li>Ventilacao com Dispositivo Bolsa Valvula Mascara (AMBU)</li>
+                            <li>Massagem Cardiaca (Com feedback) em Simpad</li>
+                            <li>Pulsos (carotideo, braqueal e radial)</li>
+                        </ul>
+                    </div>
+                    <div class="panels second-panel">
+                        <div class="panel-head">
+                            <div class="container">
+                              <div class="row">
+                                <div class="col">
+                                  <label for="inputCity" class="form-label">Data</label>
+                                  <input id="myDate" type="datetime-local" class="form-control" placeholder="Data do relatorio...">
+                                </div>
+                                <div class="col">
+                                  <label for="inputCode" class="form-label">Codigo</label>
+                                  <select name="dropdown" class="form-select">
+                                      <option selected>Codigo manequin..</option>
+                                      <option value="432-213">432-213</option>
+                                      <option value="432-214">432-214</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                      </div>
+                      <label class="all-check-boxes">Todos
+                          <input type="checkbox" class="check-boxes">
+                          <span class="checkmark"></span>
+                      </label>
+                      <span class="panel-title">Relatorio de Falhas</span>
+                      <div class="manequim-resources-list"> 
+                          <label class="container">Pulso carotideo direito
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Pulso carotideo esquerdo
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+      
+                          <label class="container">pulso braqueal direito
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          
+                          <label class="container"class="check-boxes">pulso radial direito
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Incursoes respiratórias
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Esfignomamometro
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container"> 4 Eletrodos para Monitorizacao
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container"> 2 bordas para Choque Elétrico
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Sons Internos
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                        
+                      </div> 
+                      <div class="second-panel-footer">
+                          <button class="btn-gerar-relatorio"> Gerar Relatório</button> 
+                      </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        <!-- Relatorio pages --->
+             <div class="pages relatorio-formulario" id="simNewB" tag="alta Fidelidade" style="display: none;">
+                <div class="grid-manequin-container">
+                    <span class="manequim-tittle"><h2>Sim NewB</h2></span>
+                    <div class="panels first-panel">
+                        <div class="manequim-image">
+                            <img src="imgs/manequins/SimNewb.jpeg" alt="manequim-img" id="simNewB">
+                        </div>
+                        <span class="quantity">Quantidade: <span total="1"> 1</span></span><br>
+                        <span class="panel-title">Recursos</span>
+                        <ul class="manequin-caracteristics-list">
+                            <li>Incursoes respiratórias</li>
+                            <li>Ausculta de sons respiratórios e cardiaco NAO avancado</li>
+                            <li>Bordas para Choque elétrico</li>
+                            <li>Eletrodos em torax para Monitorizacao cardiaca</li>
+                            <li>Intubacao Orotraqueal</li>
+                            <li>Ventilacao com Dispositivo Bolsa Valvula Mascara (AMBU)</li>
+                            <li>Massagem Cardiaca (Com feedback) em Simpad</li>
+                            <li>Pulsos (carotideo, braqueal e radial)</li>
+                        </ul>
+                    </div>
+                    <div class="panels second-panel">
+                        <div class="panel-head">
+                            <div class="container">
+                              <div class="row">
+                                <div class="col">
+                                  <label for="inputCity" class="form-label">Data</label>
+                                  <input id="myDate" type="datetime-local" class="form-control" placeholder="Data do relatorio...">
+                                </div>
+                                <div class="col">
+                                  <label for="inputCode" class="form-label">Codigo</label>
+                                  <select name="dropdown" class="form-select">
+                                      <option selected>Codigo manequin..</option>
+                                      <option value="450-300">450-300</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                      </div>
+                      <label class="all-check-boxes">Todos
+                          <input type="checkbox" class="check-boxes">
+                          <span class="checkmark"></span>
+                      </label>
+                      <span class="panel-title">Relatorio de Falhas</span>
+                      <div class="manequim-resources-list"> 
+                          <label class="container">Pulso carotideo direito
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Pulso carotideo esquerdo
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+      
+                          <label class="container">pulso braqueal direito
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          
+                          <label class="container"class="check-boxes">pulso radial direito
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Incursoes respiratórias
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Esfignomamometro
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container"> 4 Eletrodos para Monitorizacao
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container"> 2 bordas para Choque Elétrico
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Sons Internos
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                      </div> 
+                      <div class="second-panel-footer">
+                          <button class="btn-gerar-relatorio"> Gerar Relatório</button> 
+                      </div>
+                    </div>
+                </div>
+              
+            </div>
+        <!-- Relatorio pages --->
+            <div class="pages relatorio-formulario" id="megaCodekid" tag="media Fidelidade" style="display: none;">
+                <div class="grid-manequin-container">
+                    <span class="manequim-tittle"><h2>Mega Code Kid</h2></span>
+                    <div class="panels first-panel">
+                        <div class="manequim-image">
+                            <img src="imgs/manequins/megaKid.jpeg" alt="manequim-img" id="megaCodekid">
+                        </div>
+                        <span class="quantity">Quantidade: <span total="2"> 2</span></span><br>
+                        <span class="panel-title">Recursos</span>
+                        <ul class="manequin-caracteristics-list">
+                            <li>Incursoes respiratórias</li>
+                            <li>Ausculta de sons respiratórios e cardiaco NAO avancado</li>
+                            <li>Bordas para Choque elétrico</li>
+                            <li>Eletrodos em torax para Monitorizacao cardiaca</li>
+                            <li>Intubacao Orotraqueal</li>
+                            <li>Ventilacao com Dispositivo Bolsa Valvula Mascara (AMBU)</li>
+                            <li>Massagem Cardiaca (Com feedback) em Simpad</li>
+                            <li>Pulsos (carotideo, braqueal e radial)</li>
+                        </ul>
+                    </div>
+                    <div class="panels second-panel">
+                        <div class="panel-head">
+                            <div class="container">
+                              <div class="row">
+                                <div class="col">
+                                  <label for="inputCity" class="form-label">Data</label>
+                                  <input id="myDate" type="datetime-local" class="form-control" placeholder="Data do relatorio...">
+                                </div>
+                                <div class="col">
+                                  <label for="inputCode" class="form-label">Codigo</label>
+                                  <select name="dropdown" class="form-select">
+                                      <option selected>Codigo manequin..</option>
+                                      <option value="470-233">470-233</option>
+                                      <option value="470-234">470-234</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                      </div>
+                      <label class="all-check-boxes">Todos
+                          <input type="checkbox" class="check-boxes">
+                          <span class="checkmark"></span>
+                      </label>
+                      <span class="panel-title">Relatorio de Falhas</span>
+                      <div class="manequim-resources-list"> 
+                          <label class="container">Pulso carotideo direito
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Pulso carotideo esquerdo
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+      
+                          <label class="container">pulso braqueal direito
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          
+                          <label class="container"class="check-boxes">pulso radial direito
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Incursoes respiratórias
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Esfignomamometro
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container"> 4 Eletrodos para Monitorizacao
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container"> 2 bordas para Choque Elétrico
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Sons Internos
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                        
+                      </div> 
+                      <div class="second-panel-footer">
+                          <button class="btn-gerar-relatorio"> Gerar Relatório</button> 
+                      </div>
+                    </div>
+                </div>
+               
+            </div>
+        <!-- Relatorio pages --->
+            <div class="pages relatorio-formulario" id="simBaby" tag="alta Fidelidade" style="display: none;">
+                <div class="grid-manequin-container">
+                    <span class="manequim-tittle"><h2>Sim Baby</h2></span>
+                    <div class="panels first-panel">
+                        <div class="manequim-image">
+                            <img src="imgs/manequins/simBaby.jpeg" alt="manequim-img" id="simBaby">
+                        </div>
+                        <span class="quantity">Quantidade: <span total="1"> 1</span></span><br>
+                        <span class="panel-title">Recursos</span>
+                        <ul class="manequin-caracteristics-list">
+                            <li>Incursoes respiratórias</li>
+                            <li>Ausculta de sons respiratórios e cardiaco NAO avancado</li>
+                            <li>Bordas para Choque elétrico</li>
+                            <li>Eletrodos em torax para Monitorizacao cardiaca</li>
+                            <li>Intubacao Orotraqueal</li>
+                            <li>Ventilacao com Dispositivo Bolsa Valvula Mascara (AMBU)</li>
+                            <li>Massagem Cardiaca (Com feedback) em Simpad</li>
+                            <li>Pulsos (carotideo, braqueal e radial)</li>
+                        </ul>
+                    </div>
+                    <div class="panels second-panel">
+                        <div class="panel-head">
+                            <div class="container">
+                              <div class="row">
+                                <div class="col">
+                                  <label for="inputCity" class="form-label">Data</label>
+                                  <input id="myDate" type="datetime-local" class="form-control" placeholder="Data do relatorio...">
+                                </div>
+                                <div class="col">
+                                  <label for="inputCode" class="form-label">Codigo</label>
+                                  <select name="dropdown" class="form-select">
+                                      <option selected>Codigo manequin..</option>
+                                      <option value="500-415">500-415</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                      </div>
+                      <label class="all-check-boxes">Todos
+                          <input type="checkbox" class="check-boxes">
+                          <span class="checkmark"></span>
+                      </label>
+                      <span class="panel-title">Relatorio de Falhas</span>
+                      <div class="manequim-resources-list"> 
+                          <label class="container">Pulso carotideo direito
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Pulso carotideo esquerdo
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+      
+                          <label class="container">pulso braqueal direito
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          
+                          <label class="container"class="check-boxes">pulso radial direito
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Incursoes respiratórias
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Esfignomamometro
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container"> 4 Eletrodos para Monitorizacao
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container"> 2 bordas para Choque Elétrico
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Sons Internos
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                        
+                      </div> 
+                      <div class="second-panel-footer">
+                          <button class="btn-gerar-relatorio"> Gerar Relatório</button> 
+                      </div>
+                    </div>
+                </div>
+                
+            </div>
+        <!-- Relatorio pages --->
+            <div class="pages relatorio-formulario" id="sim3g" tag="alta Fidelidade" style="display: none;">
+                <div class="grid-manequin-container">
+                    <span class="manequim-tittle"><h2>SimMan 3G</h2></span>
+                    <div class="panels first-panel">
+                        <div class="manequim-image">
+                            <img src="imgs/manequins/SIM3G.jpeg" alt="manequim-img" id="sim3g">
+                        </div>
+                        <span class="quantity">Quantidade: <span total="1"> 1</span></span><br>
+                        <span class="panel-title">Recursos</span>
+                        <ul class="manequin-caracteristics-list">
+                            <li>Incursoes respiratórias</li>
+                            <li>Ausculta de sons respiratórios e cardiaco NAO avancado</li>
+                            <li>Bordas para Choque elétrico</li>
+                            <li>Eletrodos em torax para Monitorizacao cardiaca</li>
+                            <li>Intubacao Orotraqueal</li>
+                            <li>Ventilacao com Dispositivo Bolsa Valvula Mascara (AMBU)</li>
+                            <li>Massagem Cardiaca (Com feedback) em Simpad</li>
+                            <li>Pulsos (carotideo, braqueal e radial)</li>
+                        </ul>
+                    </div>
+                    <div class="panels second-panel">
+                        <div class="panel-head">
+                            <div class="container">
+                              <div class="row">
+                                <div class="col">
+                                  <label for="inputCity" class="form-label">Data</label>
+                                  <input id="myDate" type="datetime-local" class="form-control" placeholder="Data do relatorio...">
+                                </div>
+                                <div class="col">
+                                  <label for="inputCode" class="form-label">Codigo</label>
+                                  <select name="dropdown" class="form-select">
+                                      <option selected>Codigo manequin..</option>
+                                      <option value="530-300">530-300</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                      </div>
+                      <label class="all-check-boxes">Todos
+                          <input type="checkbox" class="check-boxes">
+                          <span class="checkmark"></span>
+                      </label>
+                      <span class="panel-title">Relatorio de Falhas</span>
+                      <div class="manequim-resources-list"> 
+                          <label class="container">Pulso carotideo direito
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Pulso carotideo esquerdo
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+      
+                          <label class="container">pulso braqueal direito
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          
+                          <label class="container"class="check-boxes">pulso radial direito
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Incursoes respiratórias
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Esfignomamometro
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container"> 4 Eletrodos para Monitorizacao
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container"> 2 bordas para Choque Elétrico
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">Sons Internos
+                              <input type="checkbox" class="check-boxes">
+                              <span class="checkmark"></span>
+                          </label>
+                        
+                      </div> 
+                      <div class="second-panel-footer">
+                          <button class="btn-gerar-relatorio"> Gerar Relatório</button> 
+                      </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!--Date flat picker!-->
+    <script src="node_modules/flatpickr/dist/flatpickr.min.js"></script>
+     <!-- BOOTSTRAP JS -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+     <script src="./script.js"></script>
+</body>
+</html>
